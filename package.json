@@ -10,7 +10,7 @@
   "files": [
     "index.js",
     "scripts",
-    "Assets/RootEvents-UnityCSharp-NPM"
+    "Assets/RootEvents-UnityCSharp-NPM/Runtime"
   ],
   "author": "jordannelson@protonmail.com",
   "license": "MIT",
