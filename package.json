@@ -1,0 +1,26 @@
+{
+  "name": "studiorootgames.root-events",
+  "version": "1.0.0",
+  "description": "An event library for Unity.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "Assets/RootEvents-UnityCSharp-NPM"
+  ],
+  "author": "jordannelson@protonmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git/issues"
+  },
+  "homepage": "https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+  }
+}
