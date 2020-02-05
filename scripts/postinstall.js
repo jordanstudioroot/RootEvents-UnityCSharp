@@ -3,10 +3,10 @@ var path = require('path');
 var ncp = require('ncp');
 
 // Package name
-var package = "RootEvents";
+var package = "RootEvents-UnityCSharp-NPM";
 
 // Paths
-var src = path.join(__dirname, '..', package);
+var src = path.join(__dirname, '..', 'Assets', package);
 var dir = path.join(__dirname, '..', '..', '..', 'Assets', 'pkg-all', package);
 
 // Create folder if missing
