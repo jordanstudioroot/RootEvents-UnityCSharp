@@ -1,12 +1,33 @@
 using System;
 
 namespace RootEvents {
+    public class RootEvent {
+        private event EventHandler _raise;
+        ~RootEvent() {
+            UnsubscribeAll();
+        }
+
+        public void Subscribe(EventHandler handler) {
+            _raise += handler;
+        }
+
+        public void UnsubscribeAll() {
+            foreach (Delegate del in _raise.GetInvocationList()) {
+                _raise -= (EventHandler)del;
+            }
+        }
+    }
     /// <summary>
     /// A zero parameter event.
     /// </summary>
     /// <typeparam name="Res"> The event response type.</typeparam>
     public class RootEvent<Res> {
         private event EventHandler<CustomEventArgs<Res>> _raise;
+
+        ~RootEvent() {
+            UnsubscribeAll();
+        }
+
         public void Subscribe(EventHandler<CustomEventArgs<Res>> handler) {
             _raise += handler;
         }
@@ -42,6 +63,11 @@ namespace RootEvents {
     /// <typeparam name="Res">The event response type.</typeparam>
     public class RootEvent<Arg, Res> {
         private event EventHandler<CustomEventArgs<Arg, Res>> _raise;
+
+        ~RootEvent() {
+            UnsubscribeAll();
+        }
+
         public void Subscribe(
             EventHandler<CustomEventArgs<Arg, Res>> handler
         ) {
@@ -82,6 +108,11 @@ namespace RootEvents {
     /// <typeparam name="Res">The event response type.</typeparam>
     public class RootEvent<Arg1, Arg2, Res> {
         private event EventHandler<CustomEventArgs<Arg1, Arg2, Res>> _raise;
+
+        ~RootEvent() {
+            UnsubscribeAll();
+        }
+        
         public void Subscribe(
             EventHandler<CustomEventArgs<Arg1, Arg2, Res>> handler
         ) {
