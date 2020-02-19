@@ -11,12 +11,27 @@ namespace RootEvents {
             _raise += handler;
         }
 
+        public void Unsubscribe(EventHandler handler) {
+            _raise -= handler;
+        }
+
         public void UnsubscribeAll() {
             foreach (Delegate del in _raise.GetInvocationList()) {
                 _raise -= (EventHandler)del;
             }
         }
+        
+        public void Publish(object source) {
+            if (_raise != null) {
+                _raise(source);
+                return;
+            }
+
+            throw new System.Exception("Event had no subscribers.");
+        }
+
     }
+
     /// <summary>
     /// A zero parameter event.
     /// </summary>
@@ -37,8 +52,8 @@ namespace RootEvents {
         }
 
         public void UnsubscribeAll() {
-            foreach (Delegate d in _raise.GetInvocationList()) {
-                _raise -= (EventHandler<CustomEventArgs<Res>>)d;
+            foreach (Delegate del in _raise.GetInvocationList()) {
+                _raise -= (EventHandler<CustomEventArgs<Res>>)del;
             }
         }
 
@@ -52,7 +67,7 @@ namespace RootEvents {
             }
 
             throw new System.Exception("Event with empty signature had " +
-                "no subcribers.");
+                "subcribers.");
         }
     }
 
@@ -81,8 +96,8 @@ namespace RootEvents {
         }
 
         public void UnsubscribeAll() {
-            foreach (Delegate d in _raise.GetInvocationList()) {
-                _raise -= (EventHandler<CustomEventArgs<Arg, Res>>)d;
+            foreach (Delegate del in _raise.GetInvocationList()) {
+                _raise -= (EventHandler<CustomEventArgs<Arg, Res>>)del;
             }
         }
 
@@ -112,7 +127,7 @@ namespace RootEvents {
         ~RootEvent() {
             UnsubscribeAll();
         }
-        
+
         public void Subscribe(
             EventHandler<CustomEventArgs<Arg1, Arg2, Res>> handler
         ) {
