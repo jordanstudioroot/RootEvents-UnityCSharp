@@ -23,7 +23,7 @@ namespace RootEvents {
         
         public void Publish(object source) {
             if (_raise != null) {
-                _raise(source);
+                _raise(source, null);
                 return;
             }
 
