@@ -1,7 +1,26 @@
 using System;
+using RootLog;
 
 namespace RootEvents {
-    public class RootEvent {
+
+    public abstract class AbstractRootEvent {
+        public bool ShowWarnings { private get; set; }
+
+        protected void NotifyNoListeners() {
+            if (ShowWarnings) {
+                RootLog.Log(
+                    "Event had no listeners.",
+                    Severity.Warning,
+                    "RootLog"
+                );
+            }
+        }
+    }
+
+    /// <summary>
+    /// A zero parameter, zero response event.
+    /// </summary>
+    public class RootEvent : AbstractRootEvent {
         private event EventHandler _raise;
         ~RootEvent() {
             UnsubscribeAll();
@@ -27,16 +46,16 @@ namespace RootEvents {
                 return;
             }
 
-            throw new System.Exception("Event had no subscribers.");
+            NotifyNoListeners();
         }
 
     }
 
     /// <summary>
-    /// A zero parameter event.
+    /// A zero parameter event with a response.
     /// </summary>
     /// <typeparam name="Res"> The event response type.</typeparam>
-    public class RootEvent<Res> {
+    public class RootEvent<Res> : AbstractRootEvent {
         private event EventHandler<CustomEventArgs<Res>> _raise;
 
         ~RootEvent() {
@@ -66,17 +85,16 @@ namespace RootEvents {
                 return result;
             }
 
-            throw new System.Exception("Event with empty signature had " +
-                "subcribers.");
+            NotifyNoListeners();
         }
     }
 
     /// <summary>
-    /// A single parameter event.
+    /// A single parameter event with a response.
     /// </summary>
     /// <typeparam name="Arg">The event parameter type.</typeparam>
     /// <typeparam name="Res">The event response type.</typeparam>
-    public class RootEvent<Arg, Res> {
+    public class RootEvent<Arg, Res> : AbstractRootEvent {
         private event EventHandler<CustomEventArgs<Arg, Res>> _raise;
 
         ~RootEvent() {
@@ -110,18 +128,17 @@ namespace RootEvents {
                 return result;
             }
 
-            throw new System.Exception("Event with signature (" +
-                arg.ToString() + ") had no subscribers.");
+            NotifyNoListeners();
         }
     }
 
     /// <summary>
-    /// A two parameter event.
+    /// A two parameter event with a response.
     /// </summary>
     /// <typeparam name="Arg1">The first parameter type.</typeparam>
     /// <typeparam name="Arg2">The second parameter type.</typeparam>
     /// <typeparam name="Res">The event response type.</typeparam>
-    public class RootEvent<Arg1, Arg2, Res> {
+    public class RootEvent<Arg1, Arg2, Res> : AbstractRootEvent {
         private event EventHandler<CustomEventArgs<Arg1, Arg2, Res>> _raise;
 
         ~RootEvent() {
@@ -160,19 +177,18 @@ namespace RootEvents {
                 return result;
             }
 
-            throw new System.Exception("Event with signature (" +
-                arg1.ToString() + ", " + arg2.ToString() + ") had no subscribers.");
+            NotifyNoListeners();
         }
     }
 
     /// <summary>
-    /// A three parameter event.
+    /// A three parameter event with a response.
     /// </summary>
     /// <typeparam name="Arg1">The first parameter type.</typeparam>
     /// <typeparam name="Arg2">The second parameter type.</typeparam>
     /// <typeparam name="Arg3">The third parameter type.</typeparam>
     /// <typeparam name="Res">The event parameter type.</typeparam>
-    public class RootEvent<Arg1, Arg2, Arg3, Res> {
+    public class RootEvent<Arg1, Arg2, Arg3, Res> : AbstractRootEvent {
         private event
             EventHandler<CustomEventArgs<Arg1, Arg2, Arg3, Res>> _raise;
         public void Subscribe(
@@ -212,9 +228,7 @@ namespace RootEvents {
                 return result;
             }
 
-            throw new System.Exception(
-                "Event with signature (" + arg1.ToString() + ", " +
-                    arg2.ToString() + ") had no subscribers.");
+            NotifyNoListeners();
         }
     }
 }

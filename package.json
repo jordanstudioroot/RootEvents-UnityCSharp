@@ -1,1 +1,29 @@
-{"name":"rootevents-unitycsharp","version":"1.0.0","description":"An event library for Unity.","main":"index.js","repository":{"type":"git","url":"git+https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git"},"files":["index.js","scripts","Assets/rootevents-unitycsharp"],"author":"jordannelson@protonmail.com","license":"MIT","bugs":{"url":"https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git/issues"},"homepage":"https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git","scripts":{"postinstall":"node scripts/postinstall.js rootevents-unitycsharp"},"dependencies":{"ncp":"^2.0.0","mkdirp":"^0.5.1"}}
+{
+  "name": "rootevents-unitycsharp",
+  "version": "1.0.0",
+  "description": "An event library for Unity.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "Assets/rootevents-unitycsharp"
+  ],
+  "author": "jordannelson@protonmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git/issues"
+  },
+  "homepage": "https://github.com/jordanstudioroot/RootEvents-UnityCSharp-NPM.git",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js rootevents-unitycsharp"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "rootlog-unitycsharp": "github:jordanstudioroot/rootlog-unitycsharp"
+  }
+}
