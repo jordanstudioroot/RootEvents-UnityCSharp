@@ -47,9 +47,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
-            return null;
         }
-
     }
 
     /// <summary>
