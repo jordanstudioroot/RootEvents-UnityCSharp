@@ -47,6 +47,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
+            return null;
         }
 
     }
@@ -86,6 +87,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
+            return null;
         }
     }
 
@@ -129,6 +131,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
+            return null;
         }
     }
 
@@ -178,6 +181,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
+            return null;
         }
     }
 
@@ -229,6 +233,7 @@ namespace RootEvents {
             }
 
             NotifyNoListeners();
+            return null;
         }
     }
 }
