@@ -1,5 +1,5 @@
 using System;
-using RootLog;
+using RootLogging;
 
 namespace RootEvents {
 
