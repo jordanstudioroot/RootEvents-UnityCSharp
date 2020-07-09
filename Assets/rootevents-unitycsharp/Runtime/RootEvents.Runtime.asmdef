@@ -1,0 +1,14 @@
+{
+    "name": "RootEvents.Runtime",
+    "references": [
+        "GUID:e3c915e2f0abd8a47b75cfe5c45bd797"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
