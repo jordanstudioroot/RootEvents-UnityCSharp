@@ -1,6 +1,6 @@
 # RootEvents
 
-A lightweight publisher-subscriberi framework used by Studio Root Games. Can be copied directly into a project, turned into a Unity Package Manager package, or added to a project initialized as an npm package using `npm install jordanstudioroot/RootEvents-UnityCSharp`.
+A lightweight publisher-subscriber framework used by Studio Root Games. Can be copied directly into a project, turned into a Unity Package Manager package, or added to a project initialized as an npm package using `npm install jordanstudioroot/RootEvents-UnityCSharp`.
 
 # Requirements
 
